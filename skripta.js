@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
 	var odstraniBarve = function(event) {
 		document.getElementById("barve").innerHTML = "";
 	}
-	
+	//dodaj event listener gumbu "odstraniBarve"
 	document.getElementById("odstraniBarve").addEventListener('click',odstraniBarve);
 	
 	//Stroboskop
@@ -39,6 +39,12 @@ window.addEventListener('load', function() {
 	
 	var stop = function(event) {
 		ustavi = true;
+		
+		//implementiramo, da lahko ponovno zaganjamo stroboskop
+		var start = document.querySelector("#start");
+		start.innerHTML = "Zaženi stroboskop";
+		start.removeEventListener('click',stop);
+		start.addEventListener('click',zagon);
 	}
 	
 	var zagon = function(event) {
